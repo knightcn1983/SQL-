@@ -1,0 +1,2 @@
+1 相比drop``/``delete，truncate用来清除数据时，速度最快
+2 可以使用INSERT … SELECT 语句从其他表复制数据。
