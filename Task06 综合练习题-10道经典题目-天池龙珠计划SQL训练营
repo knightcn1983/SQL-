@@ -1,0 +1,16 @@
+创建数据表脚本：http://tianchi-media.oss-cn-beijing.aliyuncs.com/dragonball/SQL/create_table.sql
+插入数据脚本：http://tianchi-media.oss-cn-beijing.aliyuncs.com/dragonball/SQL/data.zip
+
+下载好脚本后，先在MySQL环境中运行create_table.sql脚本，创建数据表，然后解压下载好的data.zip
+
+
+练习题1 考点 内链接
+select TICKER_SYMBOL.P1,END_DATE.p1,T_REVENUE.p1,T_COGS.p1,N_INCOME.p1 from 'Income Statement' as P1
+   where TICKER_SYMBOL.P1='600383' or TICKER_SYMBOL.P1='600048'
+   union 
+  (select TICKER_SYMBOL.P2,END_DATE.p2,CLOSE_PRICE.p2 from Market Data as P2
+   where TICKER_SYMBOL.P2='600383' or TICKER_SYMBOL.P2='600048')
+   union 
+    (select TICKER_SYMBOL.P3,END_DATE.p3,INDIC_NAME_EN.p3,VALUE.p3 from Company Operating as P3
+   where TICKER_SYMBOL.P3='600383' or TICKER_SYMBOL.P3='600048')
+   
